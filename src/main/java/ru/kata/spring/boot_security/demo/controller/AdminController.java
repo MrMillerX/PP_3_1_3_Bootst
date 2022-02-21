@@ -27,12 +27,6 @@ public class AdminController {
         this.roleService = roleService;
     }
 
-//    @GetMapping()
-//    public String getAllUsers(Model model) {
-//        model.addAttribute("users", userService.getAllUsers());
-//        return "users/index";
-//    }
-
     @GetMapping()
     public String getAllUsers(@AuthenticationPrincipal User user, Model model) {
         model.addAttribute("users", userService.getAllUsers());
@@ -54,13 +48,6 @@ public class AdminController {
         return "redirect:/admin";
     }
 
-//    @GetMapping("/new")
-//    public String newUser(Model model) {
-//        model.addAttribute("thisUser", new User());
-//        model.addAttribute("roles", roleService.getAllRoles());
-//        return "users/new";
-//    }
-
     @PatchMapping("/edit")
     public String updateUser(@ModelAttribute("user") User user,
                              @RequestParam(value = "rol") ArrayList<Long> longs) {
@@ -73,22 +60,9 @@ public class AdminController {
         return "redirect:/admin";
     }
 
-//    @DeleteMapping("/{id}")
-//    public String deleteUser(@PathVariable("id") long id) {
-//        userService.deleteUser(id);
-//        return "redirect:/admin";
-//    }
-
     @DeleteMapping("delete/{id}")
     public String deleteUser(@PathVariable("id") long id) {
         userService.deleteUser(id);
         return "redirect:/admin";
     }
-
-//    @GetMapping("/{id}/edit")
-//    public String editUser(Model model, @PathVariable("id") long id) {
-//        model.addAttribute("thisUser", userService.getUser(id));
-//        model.addAttribute("roles", roleService.getAllRoles());
-//        return "users/edit";
-//    }
 }

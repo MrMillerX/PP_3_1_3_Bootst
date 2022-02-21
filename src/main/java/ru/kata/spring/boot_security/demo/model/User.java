@@ -131,13 +131,6 @@ public class User implements UserDetails {
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
-//
-//    public void setRolesForUser(String ... roles) {
-//        for (String r : roles) {
-//
-//            this.roles = Set.of(roles);
-//        }
-//    }
 
     @Override
     public String toString() {
